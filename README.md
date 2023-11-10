@@ -22,8 +22,8 @@ mnist test
 
 ### 2-b
 
-#### naive approach: mean and median of rows
-Done with `fill_missing_data_naive.py`, results in `{fashion/mnist}_test_col_{mean/median}.csv` and at `image/column_{mean/median}`.
+#### naive approach: drop the rows & mean and median of rows
+Done with `fill_missing_data_naive.py`, results in `{fashion/mnist}_test_col_{mean/median}.csv`, `{fashion/mnist}_test_drop.csv` and at `image/column_{mean/median}`.
 
 #### Image processing approach: mean and median of N4 and N8 of the pixel
 N4: 4 neighbors of a pixel

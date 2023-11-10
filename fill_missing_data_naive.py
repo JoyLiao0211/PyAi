@@ -7,6 +7,7 @@ datatype="test"
 ids=[1877, 2516, 2707, 2910, 3760, 3918, 6027, 8347, 8582, 9368]
 print(dataset,datatype)
 df=pd.read_csv(f"./{dataset}_{datatype}.csv")
+df_drop=df.drop(ids)
 df_mean=df
 df_median=df
 col_means={col:int(df[col].mean()) for col in df.columns}
@@ -25,6 +26,7 @@ for i in ids:
     cv.imwrite(f"./image/column_mean/{dataset}_{datatype}_{i}.png",np.uint8(img_col_mean))
     cv.imwrite(f"./image/column_median/{dataset}_{datatype}_{i}.png",np.uint8(img_col_median))
 
+df_drop.to_csv(f"{dataset}_{datatype}_drop.csv",index=False)
 df_mean.to_csv(f"{dataset}_{datatype}_col_mean.csv",index=False)
 df_median.to_csv(f"{dataset}_{datatype}_col_median.csv",index=False)
 
@@ -35,6 +37,7 @@ datatype="test"
 ids=[326, 1801, 2389, 3300, 3392, 4122, 5403, 7710, 7928, 9490]
 print(dataset,datatype)
 df=pd.read_csv(f"./{dataset}_{datatype}.csv")
+df_drop=df.drop(ids)
 df_mean=df
 df_median=df
 col_means={col:int(df[col].mean()) for col in df.columns}
@@ -53,5 +56,6 @@ for i in ids:
     cv.imwrite(f"./image/column_mean/{dataset}_{datatype}_{i}.png",np.uint8(img_col_mean))
     cv.imwrite(f"./image/column_median/{dataset}_{datatype}_{i}.png",np.uint8(img_col_median))
 
+df_drop.to_csv(f"{dataset}_{datatype}_drop.csv",index=False)
 df_mean.to_csv(f"{dataset}_{datatype}_col_mean.csv",index=False)
 df_median.to_csv(f"{dataset}_{datatype}_col_median.csv",index=False)
