@@ -2,10 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-dataset="fashion"
-datatype="train"
 for dataset,datatype in [(a,b) for a in ["fashion","mnist"] for b in ["train","test"]]:
-    print(dataset,datatype)
+    print("running",dataset,datatype,"data ...")
     df1=pd.read_csv(f"./{dataset}_{datatype}.csv")
     df_x=df1.drop(labels="label",axis=1)
     X=np.array(df_x)
