@@ -20,8 +20,9 @@ for dataset in ["fashion","mnist"]:
         for (x,y,z) in [(x,y,(f"pixel{x*28+y+1}" if dataset=="fashion" else f"{x+1}x{y+1}")) for x in range(28) for y in range(28)]:
             if df[z][i] not in range(256):
                 # mark missing pixel as red
-                img[x][y][2]=255
+                img[x][y]=[0,0,255]
             else:
+                # leave it unchanged
                 for j in range(3):
                     img[x][y][j]=df[z][i]
         # cv.imwrite(f"./image/image_with_missing/{dataset}_test_{i}_preview.png",np.uint8(img))

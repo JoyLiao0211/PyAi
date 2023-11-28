@@ -54,7 +54,7 @@ for dataset in ["fashion","mnist"]:
                 img_median_N4[x][y]=[df[col][i]]*3
                 img_mean_N8[x][y]=[df[col][i]]*3
                 img_median_N8[x][y]=[df[col][i]]*3
-        cv.imwrite(f"./image/image_with_missing/{dataset}_test_{i}.png",np.uint8(img))
+        # cv.imwrite(f"./image/image_with_missing/{dataset}_test_{i}.png",np.uint8(img))
         cv.imwrite(f"./image/N4_mean/{dataset}_test_{i}.png",np.uint8(img_mean_N4))
         cv.imwrite(f"./image/N4_median/{dataset}_test_{i}.png",np.uint8(img_median_N4))
         cv.imwrite(f"./image/N8_mean/{dataset}_test_{i}.png",np.uint8(img_mean_N8))
