@@ -9,6 +9,10 @@ def col_name(dataset:str,x:int,y:int)->str:
     else:
         return f"{x+1}x{y+1}"
 
+# check if x and y are valid
+def valid(x:int,y:int)->bool:
+    return (x in range(28) and y in range(28))
+
 # images with missing values
 ids={
     "fashion":[1877, 2516, 2707, 2910, 3760, 3918, 6027, 8347, 8582, 9368],
@@ -32,11 +36,11 @@ for dataset in ["fashion","mnist"]:
         for (x,y,col) in [(x,y,col_name(dataset,x,y)) for x in range(28) for y in range(28)]:
             if df[col][i] not in range(256):
                 N8=[]
-                for u,v,col in [(x+u,y+v,col_name(dataset,x+u,y+v)) for u in range(-1,2) for v in range(-1,2) if (x+u) in range(28) and (y+v) in range(28)]:
+                for u,v,col in [(x+u,y+v,col_name(dataset,x+u,y+v)) for u in range(-1,2) for v in range(-1,2) if valid(x+u,y+v)]:
                     if df[col][i] in range(256):
                         N8.append(df[col][i])
                 N4=[]
-                for u,v,col in [(x+u,y+v,col_name(dataset,x+u,y+v)) for u,v in [(0,-1),(-1,0),(0,1),(1,0)] if (x+u) in range(28) and (y+v) in range(28)]:
+                for u,v,col in [(x+u,y+v,col_name(dataset,x+u,y+v)) for u,v in [(0,-1),(-1,0),(0,1),(1,0)] if valid(x+u,y+v)]:
                     if df[col][i] in range(256):
                         N4.append(df[col][i])
                 df_N8_mean[col][i]=int(np.mean(N8))

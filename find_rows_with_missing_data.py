@@ -4,9 +4,9 @@ import numpy as np
 for dataset in ["fashion","mnist"]:
     print("running",dataset,"test data ...")
     df=pd.read_csv(f"./{dataset}_test.csv")
-    rows_with_missing_data = df[df.isnull().any(axis=1)]
-    count_rows_with_missing_data = len(df[df.isnull().any(axis=1)])
-    print(count_rows_with_missing_data,"rows with missing values:\n",list(rows_with_missing_data.index))
+    rows_missing = df[df.isnull().any(axis=1)]
+    count_rows = len(df[df.isnull().any(axis=1)])
+    print(count_rows,"rows with missing values:\n",list(rows_missing.index))
 
 '''
 result:

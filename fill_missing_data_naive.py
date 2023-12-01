@@ -18,13 +18,13 @@ ids={
 for dataset in ["fashion","mnist"]:
     print("running",dataset,"test data ...")
     df=pd.read_csv(f"./{dataset}_test.csv")
-    df_drop=df.drop(ids["fashion"])
+    df_drop=df.drop(ids[dataset])
     df_mean=df
     df_median=df
     col_means={col:int(df[col].mean()) for col in df.columns}
     col_medians={col:int(df[col].median()) for col in df.columns}
 
-    for i in ids["fashion"]:
+    for i in ids[dataset]:
         img_col_mean=np.zeros((28,28,3))
         img_col_median=np.zeros((28,28,3))
         print("running image",i)

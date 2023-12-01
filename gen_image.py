@@ -24,7 +24,7 @@ for dataset,datatype in [(a,b) for a in ["fashion","mnist"] for b in ["train","t
         cv.imwrite(f"image/image_origin/{dataset}_{datatype}_{i}.png",img)
         # create a white cross on the image
         for x,y,col in ([(x,y,col_name(dataset,x,y)) for x in range(28) for y in [13,14]]):
-            img[x][y]=255
-            img[y][x]=255
+            img[x][y]=255 # vertical
+            img[y][x]=255 # horizontal
         cv.imwrite(f"image/image_cross/{dataset}_{datatype}_{i}.png",img)
 
